@@ -322,8 +322,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Chaoyi]
-  first_name: [Ruan]
+  last_name: [Ruan]
+  first_name: [Chaoyi]
 
   style: apa
   locale: en
