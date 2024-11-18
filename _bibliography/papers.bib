@@ -1,6 +1,15 @@
 ---
 ---
 
+@article{chen2021spandb,
+  title={Adapting to Data Affinity Changes in Geo-Replicated Database via Row-Level Paxos-
+Group Affiliation Re-Assignment},
+  author={Ruan, Chaoyi and Zhang, Yingqiang and Zhang, Juncheng and Li, Cheng and Ma, Xiaosong and Chen, Hao and Jie, Zhou and Li, Feifei and Yang, Xinjun},
+  journal = {Proc. VLDB Endow.},
+  year={2025},
+  abbr={VLDB}
+}
+
 @inproceedings{10.1145/3582016.3582055,
 author = {Ruan, Chaoyi and Zhang, Yingqiang and Bi, Chao and Ma, Xiaosong and Chen, Hao and Li, Feifei and Yang, Xinjun and Li, Cheng and Aboulnaga, Ashraf and Xu, Yinlong},
 title = {Persistent Memory Disaggregation for Cloud-Native Relational Databases},
@@ -15,7 +24,8 @@ pages = {498–512},
 numpages = {15},
 keywords = {cloud-native database, memory disaggregation, persistent memory},
 location = {Vancouver, BC, Canada},
-series = {ASPLOS 2023}
+series = {ASPLOS 2023},
+abbr={ASPLOS}
 }
 
 
@@ -34,5 +44,55 @@ journal = {Proc. VLDB Endow.},
 annotation = {* co-first author},
 month = jun,
 pages = {1900–1912},
-numpages = {13}
+numpages = {13},
+abbr={VLDB}
+}
+
+@inproceedings{chen2021spandb,
+  title={SpanDB: A fast, Cost-Effective LSM-tree based KV store on hybrid storage},
+  author={Chen, Hao and Ruan, Chaoyi and Li, Cheng and Ma, Xiaosong and Xu, Yinlong},
+  booktitle={19th USENIX Conference on File and Storage Technologies (FAST 21)},
+  pages={17--32},
+  year={2021},
+  abbr={FAST}
+}
+
+@article{10.1145/3480963,
+author = {Li, Cheng and Chen, Hao and Ruan, Chaoyi and Ma, Xiaosong and Xu, Yinlong},
+title = {Leveraging NVMe SSDs for Building a Fast, Cost-effective, LSM-tree-based KV Store},
+year = {2021},
+issue_date = {November 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {17},
+number = {4},
+issn = {1553-3077},
+url = {https://doi.org/10.1145/3480963},
+doi = {10.1145/3480963},
+abstract = {Key-value (KV) stores support many crucial applications and services. They perform fast in-memory processing but are still often limited by I/O performance. The recent emergence of high-speed commodity non-volatile memory express solid-state drives (NVMe SSDs) has propelled new KV system designs that take advantage of their ultra-low latency and high bandwidth. Meanwhile, to switch to entirely new data layouts and scale up entire databases to high-end SSDs requires considerable investment. As a compromise, we propose SpanDB, an LSM-tree-based KV store that adapts the popular RocksDB system to utilize selective deployment of high-speed SSDs. SpanDB allows users to host the bulk of their data on cheaper and larger SSDs (and even hard disc drives with certain workloads), while relocating write-ahead logs (WAL) and the top levels of the LSM-tree to a much smaller and faster NVMe SSD. To better utilize this fast disk, SpanDB provides high-speed, parallel WAL writes via SPDK, and enables asynchronous request processing to mitigate inter-thread synchronization overhead and work efficiently with polling-based I/O. To ease the live data migration between fast and slow disks, we introduce TopFS, a stripped-down file system providing familiar file interface wrappers on top of SPDK I/O. Our evaluation shows that SpanDB simultaneously improves RocksDB's throughput by up to 8.8times and reduces its latency by 9.5–58.3\%. Compared with KVell, a system designed for high-end SSDs, SpanDB achieves 96–140\% of its throughput, with a 2.3–21.6times lower latency, at a cheaper storage configuration.},
+journal = {ACM Trans. Storage},
+month = oct,
+articleno = {27},
+numpages = {29},
+keywords = {write-ahead log, SSD, Key-value store},
+abbr={TOS}
+}
+
+@inproceedings{10.1145/3447786.3456238,
+author = {Chen, Xusheng and Song, Haoze and Jiang, Jianyu and Ruan, Chaoyi and Li, Cheng and Wang, Sen and Zhang, Gong and Cheng, Reynold and Cui, Heming},
+title = {Achieving low tail-latency and high scalability for serializable transactions in edge computing},
+year = {2021},
+isbn = {9781450383349},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3447786.3456238},
+doi = {10.1145/3447786.3456238},
+abstract = {A distributed database utilizing the wide-spread edge computing servers to provide low-latency data access with the serializability guarantee is highly desirable for emerging edge computing applications. In an edge database, nodes are divided into regions, and a transaction can be categorized as intra-region (IRT) or cross-region (CRT) based on whether it accesses data in different regions. In addition to serializability, we insist that a practical edge database should provide low tail latency for both IRTs and CRTs, and such low latency must be scalable to a large number of regions. Unfortunately, none of existing geo-replicated serializable databases or edge databases can meet such requirements.In this paper, we present Dast (Decentralized Anticipate and STretch), the first edge database that can meet the stringent performance requirements with serializability. Our key idea is to order transactions by anticipating when they are ready to execute: Dast binds an IRT to the latest timestamp and binds a CRT to a future timestamp to avoid the coordination of CRTs blocking IRTs. Dast also carries a new stretchable clock abstraction to tolerate inaccurate anticipations and to handle cross-region data reads. Our evaluation shows that, compared to three relevant serializable databases, Dast's 99-percentile latency was 87.9\%~93.2\% lower for IRTs and 27.7\%~70.4\% lower for CRTs; Dast's low latency is scalable to a large number of regions.},
+booktitle = {Proceedings of the Sixteenth European Conference on Computer Systems},
+pages = {210–227},
+numpages = {18},
+keywords = {tail-latency, scalability, edge computing, distributed transaction},
+location = {Online Event, United Kingdom},
+series = {EuroSys '21},
+abbr={EuroSys}
 }
