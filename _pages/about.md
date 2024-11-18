@@ -15,6 +15,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a PhD student at USTC, advised by Prof. Cheng Li, and I am nearing graduation.
+I am a PhD student at the University of Science and Technology of China (USTC), advised by Prof. Cheng Li, and I am nearing graduation. I earned my bachelor’s degree from the University of Science and Technology of China in 2019. During my PhD, I was fortunate to work with Prof. Cheng Li at USTC, Prof. Xiaosong Ma at MBZUAI, Yingqiang Zhang, Hao Chen, Feifei Li, and other brilliant collaborators from Alibaba.
 
 My research interests include distributed databases, resource disaggregation, and AI systems.
