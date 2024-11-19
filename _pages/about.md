@@ -8,7 +8,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    Email: rcy [at] mail [at] ustc [at] edu [at] cn
+    Email: rcy [at] mail [dot] ustc [dot] edu [dot] cn
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
