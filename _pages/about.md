@@ -21,4 +21,6 @@ My research interests include machine learning systems, agentic systems, and dat
 
 ## Service
 
+- Organizer, [Workshop on Agentic AI in Real-World Systems](https://airs-workshop.github.io/), co-located with ICPP 2026
 - Program Committee, ACM ATC 2026
+- Program Committee, [FAISys 2026](https://www.faisys.net/2026/committees.html)
