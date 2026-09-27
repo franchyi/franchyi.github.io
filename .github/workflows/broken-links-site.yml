@@ -10,40 +10,39 @@ jobs:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # available images: https://github.com/actions/runner-images#available-images
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "4.0.6"
           bundler-cache: true
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.13"
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
       - name: Install JS dependencies
         run: npm ci
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          commitChange: false
-          valueFile: "_config.yml"
-          changes: |
-            {
-              "giscus.repo": "${{ github.repository }}",
-              "baseurl": ""
-            }
+      - name: Configure site for CI
+        run: |
+          bundle exec ruby -ryaml -e '
+            path = "_config.yml"
+            config = YAML.load_file(path)
+            config.fetch("giscus")["repo"] = ENV.fetch("GITHUB_REPOSITORY")
+            config["baseurl"] = ""
+            File.write(path, YAML.dump(config))
+          '
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
-          pip3 install --upgrade nbconvert
+          python -m pip install --upgrade -r requirements.txt
           export JEKYLL_ENV=production
           bundle exec jekyll build
       - name: Purge unused CSS 🧹
