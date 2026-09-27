@@ -57,6 +57,17 @@
         {% assign author_array_limit = site.max_author_limit %}
       {% endif %}
 
+      {% comment %}Extend the visible author list through the site owner's name.{% endcomment %}
+      {% for author in entry.author_array %}
+        {% assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' %}
+        {% if site.scholar.last_name contains author_last_name and site.scholar.first_name contains author.first %}
+          {% if forloop.index > author_array_limit %}
+            {% assign author_array_limit = forloop.index %}
+          {% endif %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
       {%- for author in entry.author_array limit: author_array_limit -%}
         {% assign author_is_self = false %}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
