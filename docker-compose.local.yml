@@ -1,0 +1,11 @@
+services:
+  jekyll:
+    container_name: al-folio-v12-preview
+    image: amirpourmand/al-folio@sha256:31a8af846095e7bbb43981019af0400c3a3da79c9d6c44a5e5b871cfe6a115e7
+    ports:
+      - "127.0.0.1:4000:4000"
+    volumes:
+      - .:/srv/jekyll
+    environment:
+      JEKYLL_ENV: development
+    command: bundle exec jekyll serve --host 0.0.0.0 --port 4000 --destination /tmp/_site --disable-disk-cache --force_polling
