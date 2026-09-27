@@ -39,7 +39,11 @@ not reset the lockfile in this worktree. Generated output stays in the container
   contact-note gap. Dark styling comes from the new theme.
 - Recorded both intentional overrides in `.al-folio-overrides.yml`.
 - Updated Docker/build dependency files and the deployment workflow for v1.2.
-  The remote deployment workflow has not been exercised or deployed in this trial.
+  GitHub Actions successfully built, purged CSS, and deployed migration commit
+  `81a12f52` after the local trial.
+- Aligned the remaining build-check workflows with Ruby 4.0.6 and Python 3.13.
+  Formatting CI uses the tested npm lockfile. Source-link checks exclude upstream
+  guides and local-preview notes, which are also excluded from the published site.
 - Adapted the upstream style-contract check to allow the intentional bibliography
   layout. The override audit independently checks its reviewed gem checksum.
 
@@ -91,7 +95,8 @@ and repositories pages remain excluded as before.
 
 Notebook conversion emits a non-fatal warning that the IPython3 lexer is absent;
 nbconvert falls back to Python 3. This does not affect the personal pages.
-The GitHub Actions CSS-purge/deployment stage and external links were not tested.
+External links were not checked locally; source and rendered-site link checks
+run separately in GitHub Actions.
 
 Local logs: `/private/tmp/al-folio-v12-build.log` and
 `/private/tmp/al-folio-v12-integration.log`.
